@@ -20,12 +20,12 @@ def MultiplyDivideSolver(problem):
     j = 0
     while j < len(problem):
         if problem[j] in operationsArray and problem[j] == "*":
-            problem[j] = int(problem[j-1]) * int(problem[j+1])
+            problem[j] = float(problem[j-1]) * float(problem[j+1])
             problem.pop(j-1)
             problem.pop(j)
 
         elif problem[j] in operationsArray and problem[j] == "/":
-            problem[j] = int(problem[j-1]) / int(problem[j+1])
+            problem[j] = float(problem[j-1]) / float(problem[j+1])
             problem.pop(j-1)
             problem.pop(j)
 
@@ -38,13 +38,13 @@ def AddSubtractSolver(problem):
     k = 0
     while k < len(problem):
         if problem[k] in operationsArray and problem[k] == "+":
-            problem[k] = int(problem[k-1]) + int(problem[k+1])
+            problem[k] = float(problem[k-1]) + float(problem[k+1])
             problem.pop(k-1)
             problem.pop(k)
             continue
 
         elif problem[k] in operationsArray and problem[k] == "-":
-            problem[k] = int(problem[k-1]) - int(problem[k+1])
+            problem[k] = float(problem[k-1]) - float(problem[k+1])
             problem.pop(k-1)
             problem.pop(k)
             continue

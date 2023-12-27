@@ -15,7 +15,20 @@ def splitter(spacerInput):
     parantheses(problem)
     
 def parantheses(problem):
+    global operationsArray
+    l = 0
+    pleft = 0
+    pright = 0
     
+    while l < len(problem):
+        if problem[l] == "(":
+            pleft = l
+            l += 1
+        elif problem[l] == ")":
+            pright = l
+            l += 1
+        problemParan = problem[pleft+1:pright]
+        print (problemParan)
 
  # add back MultiplyDivideSolver(problem) to the paratheses function
 def MultiplyDivideSolver(problem):
