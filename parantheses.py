@@ -1,16 +1,15 @@
 userInput = input("Problem: ")
 
-operationsArray = ["+", "-", "*", "/"]
+operations = ["+", "-", "*", "/"]
 parantheses = ["(", ")"]
 
 def Spacer(userInput):
     i = 0
     while i < len(userInput):
-        if(userInput[i] in operationsArray):
+        if userInput[i] in operations or userInput[i] in parantheses:
             userInput = userInput[:i] + " " + userInput[i] + " " + userInput[i+1:]
             i += 2
-        else:
-            i += 1
+        i += 1
     print(userInput)
-    
+
 Spacer(userInput)
