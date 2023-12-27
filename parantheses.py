@@ -1,85 +1,16 @@
 userInput = input("Problem: ")
 
-operations = ["+", "-", "*", "/"]
-operationsArray = []
+operationsArray = ["+", "-", "*", "/"]
+parantheses = ["(", ")"]
 
-def operationsSelect():
-    global operationsArray, userInput
-    for i in range(len(userInput)):
-        if(userInput[i] in operations):
-            operationsArray.append(userInput[i])
-    print("Operations: " + str(operationsArray))
-
-def splitter(spacerInput):
-    problem = spacerInput.split(" ")
-    parantheses(problem)
-    
-def parantheses(problem):
-    global operationsArray
-    l = 0
-    pleft = 0
-    pright = 0
-    
-    while l < len(problem):
-        if problem[l] == "(":
-            pleft = l
-            l += 1
-        elif problem[l] == ")":
-            pright = l
-            l += 1
-        problemParan = problem[pleft+1:pright]
-        print (problemParan)
-
- # add back MultiplyDivideSolver(problem) to the paratheses function
-def MultiplyDivideSolver(problem):
-    global operationsArray
-    print(problem)
-    j = 0
-    while j < len(problem):
-        if problem[j] in operationsArray and problem[j] == "*":
-            problem[j] = int(problem[j-1]) * int(problem[j+1])
-            problem.pop(j-1)
-            problem.pop(j)
-
-        elif problem[j] in operationsArray and problem[j] == "/":
-            problem[j] = int(problem[j-1]) / int(problem[j+1])
-            problem.pop(j-1)
-            problem.pop(j)
-
-        j += 1
-
-    print(problem)
-    AddSubtractSolver(problem)
-
-def AddSubtractSolver(problem):
-    k = 0
-    while k < len(problem):
-        if problem[k] in operationsArray and problem[k] == "+":
-            problem[k] = int(problem[k-1]) + int(problem[k+1])
-            problem.pop(k-1)
-            problem.pop(k)
-            continue
-
-        elif problem[k] in operationsArray and problem[k] == "-":
-            problem[k] = int(problem[k-1]) - int(problem[k+1])
-            problem.pop(k-1)
-            problem.pop(k)
-            continue
-
-        k += 1
-
-    print("Answer: " + str(problem))
-
-def spacer():
-    global userInput
+def Spacer(userInput):
     i = 0
     while i < len(userInput):
-        if userInput[i] in operations:
+        if(userInput[i] in operationsArray):
             userInput = userInput[:i] + " " + userInput[i] + " " + userInput[i+1:]
             i += 2
-        i += 1
-    splitter(userInput)
-
-# RUN
-operationsSelect()            
-spacer()
+        else:
+            i += 1
+    print(userInput)
+    
+Spacer(userInput)

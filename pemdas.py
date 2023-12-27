@@ -23,11 +23,13 @@ def MultiplyDivideSolver(problem):
             problem[j] = float(problem[j-1]) * float(problem[j+1])
             problem.pop(j-1)
             problem.pop(j)
+            j = 0
 
         elif problem[j] in operationsArray and problem[j] == "/":
             problem[j] = float(problem[j-1]) / float(problem[j+1])
             problem.pop(j-1)
             problem.pop(j)
+            j = 0
 
         j += 1
 
@@ -41,13 +43,13 @@ def AddSubtractSolver(problem):
             problem[k] = float(problem[k-1]) + float(problem[k+1])
             problem.pop(k-1)
             problem.pop(k)
-            continue
+            k = 0
 
         elif problem[k] in operationsArray and problem[k] == "-":
             problem[k] = float(problem[k-1]) - float(problem[k+1])
             problem.pop(k-1)
             problem.pop(k)
-            continue
+            k = 0
 
         k += 1
 
