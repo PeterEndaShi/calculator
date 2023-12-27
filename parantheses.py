@@ -8,13 +8,17 @@ def operationsSelect():
     for i in range(len(userInput)):
         if(userInput[i] in operations):
             operationsArray.append(userInput[i])
-            print("Operations: " + str(operationsArray))
+    print("Operations: " + str(operationsArray))
 
 def splitter(spacerInput):
     problem = spacerInput.split(" ")
-    isolator(problem)
+    parantheses(problem)
+    
+def parantheses(problem):
+    
 
-def isolator(problem):
+ # add back MultiplyDivideSolver(problem) to the paratheses function
+def MultiplyDivideSolver(problem):
     global operationsArray
     print(problem)
     j = 0
@@ -32,9 +36,9 @@ def isolator(problem):
         j += 1
 
     print(problem)
-    solver(problem)
+    AddSubtractSolver(problem)
 
-def solver(problem):
+def AddSubtractSolver(problem):
     k = 0
     while k < len(problem):
         if problem[k] in operationsArray and problem[k] == "+":
